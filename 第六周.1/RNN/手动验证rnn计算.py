@@ -27,7 +27,7 @@ h_prev = h0[0]
 #手动计算
 h_t = torch.tanh(
     torch.mm(x_t, W_ih.T) + b_ih +  # 第一次循环 第一个时间步于权重矩阵相乘
-    torch.mm(h_prev, W_hh.T) + b_hh  # 隐藏状态转换 (32,64) @ (64,64) -> (32,64)
+    torch.mm(h_prev, W_hh.T) + b_hh  # 隐藏状态转换 (5,64) @ (64,64) -> (5,64)
 )
 print('\n手动计算结果验证:')
 print("手动计算h_t形状:", h_t.shape)  # 应输出 (5,64)
