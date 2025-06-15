@@ -80,8 +80,8 @@ def main():
     data_dir = 'D:/study/人工智能暑期学习计划/第九周/data/snli_1.0/snli_1.0'
     train_set = SNLIBERTDataset(d2l.read_snli(data_dir, True), max_len, vocab)
     test_set = SNLIBERTDataset(d2l.read_snli(data_dir, False), max_len, vocab)
-    train_iter = torch.utils.data.DataLoader(train_set, batch_size, shuffle=True,                                          num_workers=num_workers)
-    test_iter = torch.utils.data.DataLoader(test_set, batch_size,                                            num_workers=num_workers)
+    train_iter = torch.utils.data.DataLoader(train_set, batch_size, shuffle=True,num_workers=num_workers)
+    test_iter = torch.utils.data.DataLoader(test_set, batch_size,num_workers=num_workers)
     net = BERTClassifier(bert)
     net = nn.DataParallel(net, device_ids=devices).to(devices[0])
     lr, num_epochs = 1e-4, 5
